@@ -2,7 +2,6 @@ const axios = require('axios');
 const https = require('https');
 const fs = require('fs');
 
-
 try {
   if (!fs.existsSync('./memes')) {
     fs.mkdirSync('./memes');
@@ -45,22 +44,19 @@ try {
 
   //Now we need to download the actual images to the 'memes' folder
 
-  for (const imgUrls of shortenArrayOfDataStrings) {
-    //console.log(imgUrls);
+  //for (const imgUrls of shortenArrayOfDataStrings) {
+  //console.log(typeof imgUrls);
 
-  //Right here we turned URL strings into an actual URLs
+  //Right here we have turned URL strings into an actual URLs
 
-   for (let count = 0; count=10, count++) {
-  if (imgUrls.item.includes("images") {
-
-   const file = fs.createWriteStream("./memes");
-   const request = https.get(item, function(response) {
-    response.pipe(file);
+  for (let i = 0; i < 10; i++) {
+    const url = shortenArrayOfDataStrings[i + 2];
+    if (url.includes('?')) {
+      const file = fs.createWriteStream(`./memes/image${i}.jpeg`);
+      const request = https.get(url, function (response) {
+        response.pipe(file);
+      }); //);});
+    }
   }
-  });
-
-  }
-
-   ;)
-  }
+  //}
 })();
