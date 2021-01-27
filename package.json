@@ -27,8 +27,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "fs": "^0.0.1-security",
-    "https": "^1.0.0",
-    "regex": "^0.1.1"
+    "fs": "^0.0.1-security"
   }
 }
