@@ -55,8 +55,7 @@ try {
       const file = fs.createWriteStream(`./memes/image${i}.jpeg`);
       const request = https.get(url, function (response) {
         response.pipe(file);
-      }); //);});
+      });
     }
   }
-  //}
 })();
