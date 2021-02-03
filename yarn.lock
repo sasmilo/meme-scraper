@@ -298,10 +298,10 @@
     "@typescript-eslint/types" "4.14.0"
     eslint-visitor-keys "^2.0.0"
 
-"@upleveled/eslint-config-upleveled@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/@upleveled/eslint-config-upleveled/-/eslint-config-upleveled-1.5.1.tgz#8f70bd783956963793468b2e9e420eb8d1c13dcb"
-  integrity sha512-ebVdAgY2pUSbBKhREIfdHYHrwsciIyjUfY0VrOYOm0S+xJBBo95ME0BTmwAUsP6eFs4DmQiBLEISUae9ZRzUHQ==
+"@upleveled/eslint-config-upleveled@1.5.13":
+  version "1.5.13"
+  resolved "https://registry.yarnpkg.com/@upleveled/eslint-config-upleveled/-/eslint-config-upleveled-1.5.13.tgz#7cae0b2be789b5002f32e5d897956aa395f9c2eb"
+  integrity sha512-Ki3abXb174m5iRsXtpV40tfLreaSpc5M/dVzDYYk7PWyjyuKofgQ7HESz7DtI2WaRjk4P0+ECGI3snIwXsM7Fw==
 
 acorn-jsx@^5.3.1:
   version "5.3.1"
@@ -1065,11 +1065,6 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
-
-fs@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
-  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
 
 function-bind@^1.1.1:
   version "1.1.1"
