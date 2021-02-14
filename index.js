@@ -15,48 +15,39 @@ try {
   const page = await axios.get(
     'https://memegen-link-examples-upleveled.netlify.app/',
   );
-  const pageData = page.data; // In pageData variable is the whole HTML page, but in form of a string
-  // console.log(pageData);
-
-  // console.log(pageData.includes('&')); // That's false, so I've found out that string contained in pageData
-  // doesn't contain symbol '&'
-
-  // const newPageDataString = pageData.replace(/src="/g, '&');
-  // Replace all 'src="' string parts with exclusive sign '&' so we can split with '&' later
-
-  // console.log(newPageDataString); // Just to prove it works
+  const pageData = page.data; // In pageData variable is the whole HTML page, but in form of a one huge string
 
   const arrayOfDataStrings = pageData.split(/src="/g);
-  // console.log(arrayOfDataStrings);
-
-  // Now we need to extract strings that begin after '&' and end before '?' and put those strings in an array
-  // We observed the links at the string, and all of useful content stands between '&' and first '?' sign
-  // Let's try to shorten the strings in this array, in a way that we will cut off all after '?'
-  const shortenArrayOfDataStrings = arrayOfDataStrings.map(function (
-    item,
-    index,
-  ) {
+  // Here we made an array of strings by splitting pageData by part src=" , which comes before every photo
+  // Every element of this array starts with the URL of the desired meme and after that
+  // there is plenty of stuff we don't need. What we need ends with the first '&' sign.
+  // Let's try to shorten the strings in this array, in a way that we will cut off all after the first '?'
+  const shortenArrayOfDataStrings = arrayOfDataStrings.map(function (item) {
     return item.slice(0, item.indexOf('?') + 1);
   });
 
-  // Now we got URLs of all meme pictures in the string
-  // console.log(shortenArrayOfDataStrings); // Just to prove it works
+  // Now we got URLs of all meme pictures in the array.
 
   // Now we need to download the actual images to the 'memes' folder
 
-  // for (const imgUrls of shortenArrayOfDataStrings) {
-  // console.log(typeof imgUrls);
-
   // Right here we have turned URL strings into an actual URLs
 
-  for (let i = 0; i < 10; i++) {
-    const url = shortenArrayOfDataStrings[i + 2];
+  for (let i = 2; i < 12; i++) {
+    const url = shortenArrayOfDataStrings[i];
     if (url.includes('?')) {
-      const file = fs.createWriteStream(`./memes/image${i}.jpeg`);
+      const file = fs.createWriteStream(`./memes/image${i - 1}.jpeg`);
       const request = https.get(url, function (response) {
         response.pipe(file);
       });
+      if (request !== false) {
+        console.log(
+          `There is image${i - 1}.jpeg in the Memes folder waiting for you!`,
+        );
+      } else {
+        console.log(
+          `Uh-oh! There's been some mistake! Please check the source page.`,
+        );
+      }
     }
   }
-  console.log('Success! Check in your root folder for the folder named Memes');
 })();
