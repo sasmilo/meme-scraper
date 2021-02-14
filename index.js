@@ -40,9 +40,7 @@ try {
         response.pipe(file);
       });
       if (request !== false) {
-        console.log(
-          `There is image${i - 1}.jpeg in the Memes folder waiting for you!`,
-        );
+        console.log(`${i - 1}`);
       } else {
         console.log(
           `Uh-oh! There's been some mistake! Please check the source page.`,
@@ -50,4 +48,7 @@ try {
       }
     }
   }
+  console.log(
+    `Look up for the folder called 'memes' in the root folder and have fun!`,
+  );
 })();
