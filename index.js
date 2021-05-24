@@ -39,9 +39,7 @@ try {
       const request = https.get(url, function (response) {
         response.pipe(file);
       });
-      if (request !== false) {
-        console.log(`${i - 1}`);
-      } else {
+      if (request === {}) {
         console.log(
           `Uh-oh! There's been some mistake! Please check the source page.`,
         );
